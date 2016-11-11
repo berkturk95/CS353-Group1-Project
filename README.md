@@ -3,12 +3,12 @@ This project will be an online accommodation system.
 
 ## Group Members
 
--Selin Fildiş
+- Selin Fildiş
 
--Berk Türk
+- Berk Türk
 
--Pınar Ezgi Çöl
+- Pınar Ezgi Çöl
 
--Yonca Yunatcı
+- Yonca Yunatcı
 
 [Project Website](http://selinfildis.me/cs353/cs353_project_website.html)
