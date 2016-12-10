@@ -5,7 +5,7 @@
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <!link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <title>AccomoMe</title>
 </head>
 <body>
@@ -21,9 +21,11 @@
     <div class="container">
       <br><br>
       <h1 class="header center orange-text">Find Houses for your travels</h1>
-      <div class="center">
+      <div class="center" style="background-color: rgba(54, 54, 54, 0.5); height: 400px;
+   background-opacity: 0.5;">
         <div  style = "display:inline-block;">
-          <input placeholder="Paris" id="city_search" type="text" class="validate">          <br>
+
+          <input placeholder="City" id="city_search" type="text" class="validate">          <br>
         </div>
         <div class = "select-wrapper">
         <div>
@@ -177,12 +179,14 @@
               <img src = "http://blog.airbnb.com/wp-content/uploads/2015/01/sundance2015_parkcity_derballa_23jan2015_00655.jpg?3c10be"
               alt = "Unsplashed background img 1" style="display: block; transform: translate3d(-50%, 210px, 0px); ">
             </div>
+            <br>
+          <div class="row center">
+            <! buraya search için php kısmı gelecek, ama OLMUYOR OLMUYOR.>
+            <a href=".\search.php" id="download-button" class="btn-large waves-effect waves-light orange">Search</a>
           </div>
-          <br>
-        <div class="row center">
-          <a href=".\search.php" id="download-button" class="btn-large waves-effect waves-light orange">Search</a>
-        </div>
+          </div>
 
       </div>
     </div>
 </body>
+</html>
