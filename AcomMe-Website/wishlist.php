@@ -1,28 +1,43 @@
 <?php
 include "header.php";
 include "navbar.php";
-
+if(isset($_SESSION['login'])){
+    $wishes = userWishes($_SESSION['userID']);
+    if(isset($_GET['delete'])){
+        deleteWish($_SESSION['userID'],$_GET['delete']);
+        header("Location: wishlist.php");
+        exit;
+    }
+}else{
+    header("Location: index.php");
+    exit;
+}
 ?>
 <div class="container">
     <div class="row">
         <div class="col-md-12 main-page">
-            <form method="POST" enctype="multipart/form-data">
-              <div class"col-md-6 col-md-6-offset-3">
+              <div class="col-md-12">
                 <div class="panel panel-default">
                   <div class="panel-body">
                     <table class="table table-striped">
                       <tbody>
-                        <tr>
-                        <!--burası php ile databaseten çekilecek.... & wishlistten ekle çıkar için button eklenecek her cell'in altına
-                        <tb>  </tb>-->
-                      </tr>
+                        
+                        <?php foreach($wishes as $data){ 
+                            $houseData = getHouseData($data->wishesAccommodationID);
+                            ?>
+                            <tr>
+                                <td><?php echo $houseData->title; ?></td>
+                                <td><?php echo $houseData->city; ?></td>
+                                <td><a href="wishlist.php?delete=<?php echo $data->wishesAccommodationID; ?>" class="btn btn-danger">Delete</a></td>
+                            </tr>
+                        <?php } ?>
+                      
                       </tbody>
                     </table>
 
                   </div>
                 </div>
               </div>
-            </form>
         </div>
     </div>
 <?php

@@ -1,7 +1,7 @@
 <?php 
 include "header.php";
 include "navbar.php";
-if(isset($_GET['city']) && isset($_GET['DateRange']) && isset($_GET['people'])){
+if(isset($_GET['city']) && isset($_GET['DateRange']) && isset($_GET['people']) && strlen($_GET['DateRange']) > 0 && strlen($_GET['people']) > 0 ){
     if(isset($_POST['advanceSearch'])){
         $date = explode(' - ',$_POST['DateRange']);
         if(!isset($_POST['isHave'])){
@@ -14,6 +14,9 @@ if(isset($_GET['city']) && isset($_GET['DateRange']) && isset($_GET['people'])){
     }
     
 
+}else{
+    header("Location: index.php");
+    exit;
 }
 ?>
 <div class="container search-page">
@@ -44,10 +47,18 @@ if(isset($_GET['city']) && isset($_GET['DateRange']) && isset($_GET['people'])){
                 <div class="panel-body">
 
                     <div class="row">
-                        <?php foreach($results as $result){ ?>
+                        <?php foreach($results as $result){
+                            $houseImages = getHousePhoto($result->accommodationID);
+                            if(count($houseImages) > 0){
+                                $img = current(getHousePhoto($result->accommodationID))->photo;
+                            }else{
+                                $img = 'default.png';
+                            }
+                            
+                        ?>
                         <div class="col-md-3">
                             <div class="thumbnail">
-                                <img src="https://placeimg.com/640/480/any">
+                                <img src="<?php echo s3Url.'house/'.$img; ?>" style="height:150px;">
                                     <div class="caption">
                                         <a href="houseDisplay.php?id=<?php echo $result->offeringID; ?>"><p><?php echo $result->title; ?></p></a>
                                     </div>
