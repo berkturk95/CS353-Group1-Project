@@ -49,7 +49,7 @@ if(isset($_GET['city']) && isset($_GET['DateRange']) && isset($_GET['people'])){
                             <div class="thumbnail">
                                 <img src="https://placeimg.com/640/480/any">
                                     <div class="caption">
-                                        <p><?php echo $result->title; ?></p>
+                                        <a href="houseDisplay.php?id=<?php echo $result->offeringID; ?>"><p><?php echo $result->title; ?></p></a>
                                     </div>
                             </div>
                         </div>
